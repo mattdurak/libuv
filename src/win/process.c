@@ -1220,7 +1220,7 @@ static int uv__kill(HANDLE process_handle, int signum) {
                              NULL,
                              &localappdata);
         _snwprintf_s(dump_folder,
-                     sizeof(dump_folder),
+                     sizeof(dump_folder)/sizeof(dump_folder[0]),
                      _TRUNCATE,
                      L"%ls\\CrashDumps",
                      localappdata);
@@ -1233,7 +1233,7 @@ static int uv__kill(HANDLE process_handle, int signum) {
 
       /* Construct dump filename from process name and PID. */
       _snwprintf_s(dump_name,
-                   sizeof(dump_name),
+                   sizeof(dump_name)/sizeof(dump_name[0]),
                    _TRUNCATE,
                    L"%ls\\%ls.%d.dmp",
                    dump_folder,
